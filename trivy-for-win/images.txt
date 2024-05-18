@@ -1,0 +1,32 @@
+aquasec/trivy:latest
+busybox
+cr.l5d.io/linkerd/controller:edge-24.4.5 cr.l5d.io/linkerd/proxy:edge-24.4.5
+cr.l5d.io/linkerd/proxy:edge-24.4.5 cr.l5d.io/linkerd/controller:edge-24.4.5
+cr.l5d.io/linkerd/proxy:edge-24.4.5 cr.l5d.io/linkerd/controller:edge-24.4.5 cr.l5d.io/linkerd/controller:edge-24.4.5 cr.l5d.io/linkerd/policy-controller:edge-24.4.5
+cr.l5d.io/linkerd/proxy:edge-24.4.5 cr.l5d.io/linkerd/metrics-api:edge-24.5.1
+cr.l5d.io/linkerd/proxy:edge-24.4.5 cr.l5d.io/linkerd/tap:edge-24.5.1
+cr.l5d.io/linkerd/proxy:edge-24.4.5 cr.l5d.io/linkerd/web:edge-24.5.1
+cr.l5d.io/linkerd/proxy:edge-24.4.5 docker.l5d.io/buoyantio/emojivoto-emoji-svc:v11
+cr.l5d.io/linkerd/proxy:edge-24.4.5 docker.l5d.io/buoyantio/emojivoto-voting-svc:v11
+cr.l5d.io/linkerd/proxy:edge-24.4.5 docker.l5d.io/buoyantio/emojivoto-web:v11
+cr.l5d.io/linkerd/proxy:edge-24.4.5 ghcr.io/dexidp/dex:v2.37.0
+cr.l5d.io/linkerd/proxy:edge-24.4.5 prom/prometheus:v2.48.1
+cr.l5d.io/linkerd/proxy:edge-24.4.5 quay.io/argoproj/argocd:v2.10.4
+cr.l5d.io/linkerd/proxy:edge-24.4.5 redis:7.0.14-alpine
+gcr.io/google-samples/kubernetes-bootcamp:v1
+gcr.io/heptio-images/ks-guestbook-demo:0.2
+gcr.io/k8s-minikube/storage-provisioner:v5
+ghcr.io/benc-uk/kubeview:0.1.31
+nginx:1.19
+nigelpoulton/k8sbook:1.0
+nigelpoulton/web-app:1.0
+quay.io/argoproj/argocd:v2.10.4
+registry.k8s.io/coredns/coredns:v1.10.1
+registry.k8s.io/etcd:3.5.9-0
+registry.k8s.io/ingress-nginx/controller:v1.9.4@sha256:5b161f051d017e55d358435f295f5e9a297e66158f136321d9b04520ec6c48a3
+registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20231011-8b53cabe0@sha256:a7943503b45d552785aa3b5e457f169a5661fb94d82b8a3373bcd9ebaf9aac80
+registry.k8s.io/kube-apiserver:v1.28.3
+registry.k8s.io/kube-controller-manager:v1.28.3
+registry.k8s.io/kube-proxy:v1.28.3
+registry.k8s.io/kube-scheduler:v1.28.3
+vichino/public:argoholamundo
