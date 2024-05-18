@@ -1,7 +1,8 @@
 - connect to cluster
 - pv
 - pvc
-- kubectl get pods --all-namespaces -o jsonpath='{range .items[*]}{.spec.containers[*].image}{"\n"}{end}' | sort | uniq > images.txt
+#- kubectl get pods --all-namespaces -o jsonpath='{range .items[*]}{.spec.containers[*].image}{"\n"}{end}' | sort | uniq > images.txt
+# with *
 - kubectl create configmap trivy-images --from-file=images.txt
 - kubectl create configmap trivy-images --from-file=images.txt
 - k apply -f trivy-job.yaml
