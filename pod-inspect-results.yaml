@@ -1,0 +1,18 @@
+# pod-inspect-results.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: trivy-results-inspect
+  namespace: default
+spec:
+  containers:
+  - name: inspector
+    image: busybox
+    command: ["sh", "-c", "sleep 3600"]
+    volumeMounts:
+    - name: trivy-storage
+      mountPath: /mnt/trivy
+  volumes:
+  - name: trivy-storage
+    persistentVolumeClaim:
+      claimName: trivy-pvc

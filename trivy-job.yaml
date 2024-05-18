@@ -1,0 +1,42 @@
+# trivy-job.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: trivy-scan
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+      - name: trivy
+        image: aquasec/trivy:latest
+        command: ["/bin/sh", "-c", "--"]
+        args:
+          - |
+            #!/bin/sh
+            IMAGE_FILE="/mnt/trivy/images.txt"
+            RESULTS_DIR="/mnt/trivy/trivy_results"
+            mkdir -p "$RESULTS_DIR"
+            echo "imagenes alkmancenadas en $IMAGE_FILE"
+            cat "$IMAGE_FILE" # Verificar contenido de IMAGE_FILE
+            while IFS= read -r image; do
+              echo "Escaneando la imagen: $image"
+              trivy image "$image" > "$RESULTS_DIR/trivy_results_${image//\//_}.txt" 2>&1
+              echo "Resultado del escaneo guardado en $RESULTS_DIR/trivy_results_${image//\//_}.txt"
+            done < "$IMAGE_FILE"
+            echo "Escaneo completado."
+        volumeMounts:
+        - name: trivy-storage
+          mountPath: /mnt/trivy
+        - name: trivy-images
+          mountPath: /mnt/trivy/images.txt
+          subPath: images.txt
+      restartPolicy: Never
+      volumes:
+      - name: trivy-storage
+        persistentVolumeClaim:
+          claimName: trivy-pvc
+      - name: trivy-images
+        configMap:
+          name: trivy-images
+  backoffLimit: 4
